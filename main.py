@@ -10,9 +10,7 @@ class Main:
         self.indicadores = Indicadores()
 
     def executar(self):
-        """
-        Executa o programa para calcular cotações e indicadores mesclados.
-        """
+       
         print("Calculando indicadores principais (ind)...")
         ind = self.indicadores.indicadores()
 
