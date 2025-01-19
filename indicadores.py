@@ -12,9 +12,7 @@ class Indicadores:
         ]
 
     def indicadores(self):
-        """
-        Calcula indicadores principais dos ativos da carteira.
-        """
+
         try:
             ind = pd.concat([
                 fu.get_papel(papel)[[
@@ -36,9 +34,7 @@ class Indicadores:
             return None
 
     def indicadores2(self):
-        """
-        Calcula indicadores adicionais dos ativos da carteira.
-        """
+
         try:
             ind_2 = fu.get_resultado_raw().reset_index()
             ind_2 = ind_2.query("papel in @self.carteiraFu")
@@ -50,9 +46,7 @@ class Indicadores:
             return None
 
     def mesclagem(self, ind, ind_2):
-        """
-        Mescla os indicadores principais e adicionais e calcula LPA e VPA.
-        """
+
         try:
             ind["LPA"] = (ind["Lucro_Liquido_12m"] / ind["Nro_Acoes"]).round(2)
             ind["VPA"] = (ind["Patrim_Liq"] / ind["Nro_Acoes"]).round(2)
